@@ -1,7 +1,7 @@
 .topbar {
     width: 100%;
     height: 50px;
-    background-color: rgb(215, 222, 243);
+    background-color: #3F51B5;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -19,7 +19,7 @@
 .logo{
     font-weight: bold;
     font-size: 30px;
-    color: cornflowerblue;
+    color: white;
 }
 
 .topRight{
@@ -31,7 +31,7 @@
   position: relative;
   cursor: pointer;
   margin-right: 10px;
-  color: #555;
+  color: white;
 }
 
 .topIconBadge{

@@ -47,12 +47,6 @@ export default function Sidebar() {
                 Users
               </li>
             </Link>
-            <Link to="/products" className="link">
-              <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
-                Products
-              </li>
-            </Link>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Transactions
@@ -73,10 +67,6 @@ export default function Sidebar() {
             <li className="sidebarListItem">
               <DynamicFeed className="sidebarIcon" />
               Feedback
-            </li>
-            <li className="sidebarListItem">
-              <ChatBubbleOutline className="sidebarIcon" />
-              Messages
             </li>
           </ul>
         </div>
