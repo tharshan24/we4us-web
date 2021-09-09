@@ -4,6 +4,8 @@ import "./App.css";
 import Home from './pages/home/Home';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserList from './pages/userList/UserList';
+import Notification from './pages/notification/Notification';
+import View from './pages/notification/view'
 
 function App() {
   return (
@@ -17,6 +19,12 @@ function App() {
           </Route>
           <Route  path="/users">
             <UserList/>
+          </Route>
+          <Route  path="/notification">
+            <Notification/>
+          </Route>
+          <Route  path="/view/">
+            <View/>
           </Route>
         </Switch> 
       </div>
