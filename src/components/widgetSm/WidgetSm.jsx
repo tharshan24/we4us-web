@@ -1,5 +1,6 @@
 import "./widgetSm.css";
 import { Visibility } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 export default function WidgetSm() {
   return (
@@ -46,10 +47,12 @@ export default function WidgetSm() {
             <span className="widgetSmUsername">Ani</span>
             <span className="widgetSmUserTitle">Care home</span>
           </div>
+          <Link to="/user">
           <button className="widgetSmButton">
             <Visibility className="widgetSmIcon" />
             Display
           </button>
+            </Link>
         </li>
       </ul>
     </div>

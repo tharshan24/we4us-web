@@ -19,14 +19,12 @@ export default function Topber(){
              </Link>
             </div>
           <div className="topbarIconContainer">
-              <Language />
-            <span className="topIconBadge">2</span>
-          </div>
-          <div className="topbarIconContainer">
               <Settings />
           </div>
           <img src="../../../images/me.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="topAvatar"/>
+          <span className="logout">log out</span>
         </div>
+
       </div>
 </div>
   );

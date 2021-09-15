@@ -7,6 +7,7 @@ import UserList from './pages/userList/UserList';
 import Notification from './pages/notification/Notification';
 import View from './pages/notification/view'
 import User from './pages/user/User';
+import WidgetSm from './components/widgetSm/WidgetSm';
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path="/user/:userId">
             <User />
+          </Route>
+          <Route  path="/user">
+            <WidgetSm/>
           </Route>
         </Switch> 
       </div>
