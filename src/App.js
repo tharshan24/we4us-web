@@ -8,6 +8,8 @@ import Notification from './pages/notification/Notification';
 import View from './pages/notification/view'
 import User from './pages/user/User';
 import WidgetSm from './components/widgetSm/WidgetSm';
+import Transactions from './pages/transactions/Transactions';
+import Analytics from './pages/analytics/Analytics';
 
 function App() {
   return (
@@ -33,6 +35,12 @@ function App() {
           </Route>
           <Route  path="/user">
             <WidgetSm/>
+          </Route>
+          <Route path="/transactions">
+            <Transactions/>
+          </Route>
+          <Route path="/analytics">
+            <Analytics/>
           </Route>
         </Switch> 
       </div>

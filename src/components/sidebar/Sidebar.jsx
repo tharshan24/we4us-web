@@ -27,13 +27,13 @@ export default function Sidebar() {
               <LineStyle className="sidebarIcon" />
               Home
             </li>
+              </Link>
+            <Link to="/analytics" className="link">
+              <li className="sidebarListItem">
+                <Timeline className="sidebarIcon" />
+                Analytics
+              </li>
             </Link>
-            <link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            </link>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -45,10 +45,12 @@ export default function Sidebar() {
                 Users
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Transactions
-            </li>
+            <Link to="/transactions" className="link">
+              <li className="sidebarListItem">
+                <AttachMoney className="sidebarIcon" />
+                Transactions
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports
