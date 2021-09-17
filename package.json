@@ -2,7 +2,7 @@
   "name": "cd..",
   "version": "cd..",
   "private": true,
-  "proxy":"https://we4us.herokuapp.com",
+  "proxy": "https://we4us.herokuapp.com",
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",

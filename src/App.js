@@ -14,19 +14,22 @@ import Transactions from './pages/transactions/Transactions';
 import DriverList from './pages/driverList/DriverList';
 import Availability from './pages/availability/Availability';
 import Request from './pages/request/Request';
+import ViewDriver from './pages/driverList/ViewDriver';
 
 function App() {
   return (
       <Router>
-        <Route exact path="/">
+        {/* <Route exact path="/">
             <Login/>
-          </Route>
-       <Topber/> 
+        </Route> */}
+       {/* <Topber/>  */}
       <div className="container">
-        <Sidebar/>
+        {/* <Sidebar/> */}
         <Switch>
-          <Route exact path="/">
+          <Route path="/home">
             <Home/>
+            <Sidebar/>
+            <Topber/>
           </Route>
           <Route  path="/users">
             <UserList/>
@@ -54,6 +57,9 @@ function App() {
           </Route>
           <Route path="/driverList">
             <DriverList/>
+          </Route>
+          <Route path="/viewDriver/:userId">
+            <ViewDriver/>
           </Route>
         </Switch>  
       </div>

@@ -47,7 +47,7 @@ export default function DriverList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/viewDriver/" + params.row.id}>
               <button className="userListEdit">ViewDriver</button>
             </Link>          
           </>

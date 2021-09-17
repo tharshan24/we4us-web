@@ -13,6 +13,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
+// import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -29,6 +30,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  // const navigate = useNavigate("");
   const [name, setName] = React.useState();
   const [password, setPassword] = React.useState();
   const handleSubmit = (event) => {
@@ -42,16 +44,16 @@ export default function Login() {
   };
   const Login =()=>{
     const data={
-      name: name,
+      user_name: name,
       password: password,
     }
     axios.post('/user/login',data
     
   ).then((response) => {
-    console.log(response.data[0]);
-    console.log(response.data[0]);
-
-    
+    console.log(response);
+    // if(Response.data){
+    //   navigate('/pages/Home/home', { replace: true });
+    // }
   })
   }
 
@@ -120,15 +122,18 @@ export default function Login() {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+              <Link to="/home">
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={Login}
+              
               >
                 Sign In
               </Button>
+              </Link>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">

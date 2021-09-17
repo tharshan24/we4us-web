@@ -9,7 +9,7 @@ import {
   // import { Link } from "react-router-dom";
   import "../notification/user.css";
   
-  export default function User() {
+  export default function ViewDriver() {
     return (
       <div className="user">
         <div className="userTitleContainer">
