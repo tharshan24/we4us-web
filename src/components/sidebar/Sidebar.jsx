@@ -2,14 +2,10 @@ import "./sidebar.css";
 import {
   LineStyle,
   Timeline,
-  TrendingUp,
   PermIdentity,
-  Storefront,
   AttachMoney,
   BarChart,
-  MailOutline,
   DynamicFeed,
-  ChatBubbleOutline,
   WorkOutline,
   Report,
 } from "@material-ui/icons";
@@ -23,19 +19,46 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/" className="link">
-            <li className="sidebarListItem active">
+            <li className="sidebarListItem">
               <LineStyle className="sidebarIcon" />
               Home
             </li>
               </Link>
-            <Link to="/analytics" className="link">
+            {/* <Link to="/analytics" className="link">
               <li className="sidebarListItem">
                 <Timeline className="sidebarIcon" />
                 Analytics
               </li>
-            </Link>
+            </Link> */}
           </ul>
         </div>
+
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Services</h3>
+          <ul className="sidebarList">
+            <Link to="/availability" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                Availability
+              </li>
+            </Link>
+            <Link to="/request" className="link">
+              <li className="sidebarListItem">
+                <AttachMoney className="sidebarIcon" />
+                Request
+              </li>
+            </Link>
+            <li className="sidebarListItem">
+              <BarChart className="sidebarIcon" />
+              Selling Points
+            </li>
+            <li className="sidebarListItem">
+              <BarChart className="sidebarIcon" />
+              Callection Points
+            </li>
+          </ul>
+        </div>
+
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
@@ -69,10 +92,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Driver</h3>
           <ul className="sidebarList">
+            <Link to="driverList" className="link">
             <li className="sidebarListItem">
               <WorkOutline className="sidebarIcon" />
               Manage
             </li>
+            </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics

@@ -1,3 +1,4 @@
+import Login from './components/login';
 import Topber from './components/topbar/Topbar';
 import Sidebar from './components/sidebar/Sidebar';
 import "./App.css";
@@ -9,12 +10,18 @@ import View from './pages/notification/view'
 import User from './pages/user/User';
 import WidgetSm from './components/widgetSm/WidgetSm';
 import Transactions from './pages/transactions/Transactions';
-import Analytics from './pages/analytics/Analytics';
+//import Analytics from './pages/analytics/Analytics';
+import DriverList from './pages/driverList/DriverList';
+import Availability from './pages/availability/Availability';
+import Request from './pages/request/Request';
 
 function App() {
   return (
       <Router>
-      <Topber/>
+        <Route exact path="/">
+            <Login/>
+          </Route>
+       <Topber/> 
       <div className="container">
         <Sidebar/>
         <Switch>
@@ -39,10 +46,16 @@ function App() {
           <Route path="/transactions">
             <Transactions/>
           </Route>
-          <Route path="/analytics">
-            <Analytics/>
+          <Route path="/availability">
+            <Availability/>
           </Route>
-        </Switch> 
+          <Route path="/request">
+            <Request/>
+          </Route>
+          <Route path="/driverList">
+            <DriverList/>
+          </Route>
+        </Switch>  
       </div>
       </Router>
   );

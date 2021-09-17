@@ -1,191 +1,151 @@
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import React, { useState, useEffect } from "react";
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+//import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
-import { Helmet } from 'react-helmet';
-import logo from '../images/logo-gr.png'
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  TextField,
-  Typography
-} from '@material-ui/core';
-import back from '../images/login2.jpg';
-import { makeStyles } from '@material-ui/core/styles';
-function Login() {
 
-  const navigate = useNavigate("");
-  const [loginemail, setEmail] = useState("");
-  const [loginpassword, setPassword] = useState("");
-  const [loginStatusadmin, setLoginStatusadmin] = useState("");
-  
-  const useStyles = makeStyles((theme) => ({
-      root: {
-        width: '100%',
-  
-      },
-      paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-      },
-      heading: {
-        fontSize: theme.typography.pxToRem(15),
-        flexBasis: '33.33%',
-        flexShrink: 0,
-      },
-      secondaryHeading: {
-        fontSize: theme.typography.pxToRem(15),
-        color: 'black',
-      },
-      formbox: {
-        backgroundColor: 'gray',
-        width: '60%',
-        marginTop: '40px',
-        marginLeft: '200px',
-        height: 'full',
-        boxShadow: "2px 2px 5px  2px #9E9E9E",
-        padding: "2vh",
-        borderRadius: "5px",
-        align: 'center',
-      },
-      textfield: {
-        backgroundColor: 'white',
-        width: '100%',
-        marginTop: '0px',
-        marginLeft: '100px',
-        height: '100%',
-        padding: "2vh",
-        borderRadius: "5px",
-      },
-      link: {
-        color: '#FFF',
-      },
-      h1: {
-        color: '#FFF',
-        fontFamily: "Sans-serif",
-      },
-      view: {
-        paddingRight:'10px',
-        color: '#FFF',
-        size:'200px',
-      },
-      backgroud: {
-        backgroundColor: '#5eb6b8',
-        backgroundImage: `url(${back})`
-      },
-    }));
-  
-
-    const classes = useStyles();
+function Copyright(props) {
   return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        We4Us
+      </Link>
+      {new Date().getFullYear()}
+    </Typography>
+  );
+}
 
-    <>
-      <Helmet>
-        <title>Login</title>
-      </Helmet>
-      <Box
-        sx={{
-          backgroundColor: 'background.default',
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
-          justifyContent: 'center'
-        }}
-        className={classes.backgroud}
-      >
-        <img style={{
-          width: "86px",
-          height: "86px",
-          alignSelf: "center"
-        }} src={logo} alt="Logo" />
+const theme = createTheme();
 
-        <Container maxWidth="xs">
-          <Box sx={{ mb: 3 }}>
-            <Typography
-              color="textPrimary"
-              variant="h2"
-              align="center"
-            >
-              Sign in
-            </Typography>
-            <Typography
-              color="textSecondary"
-              gutterBottom
-              variant="body2"
-              align="center"
-            >
-              Sign in to Pettah Pharma
-            </Typography>
-          </Box>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              xs={12}
-              md={6}
-            >
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={6}
-            >
-            </Grid>
-          </Grid>
+export default function Login() {
+  const [name, setName] = React.useState();
+  const [password, setPassword] = React.useState();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+   // const data = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
+    console.log(
+      name,
+      password
+    );
+  };
+  const Login =()=>{
+    const data={
+      name: name,
+      password: password,
+    }
+    axios.post('/user/login',data
+    
+  ).then((response) => {
+    console.log(response.data[0]);
+    console.log(response.data[0]);
+
+    
+  })
+  }
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              pb: 1,
-              pt: 3
+              my: 8,
+              mx: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
             }}
           >
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+              {/* <LockOutlinedIcon /> */}
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Sign in
+            </Typography>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                label="User Name"
+                name={name}
+                autoComplete="name"
+                autoFocus
+                onChange={(e)=>{
+                  setName(e.target.value);
+                }}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name={password}
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={Login}
+              >
+                Sign In
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link href="#" variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Grid item>
+                  {/* <Link href="#" variant="body2">
+                    {"Don't have an account? Sign Up"}
+                  </Link> */}
+                </Grid>
+              </Grid>
+              <Copyright sx={{ mt: 5 }} />
+            </Box>
           </Box>
-          <TextField
-            fullWidth
-            label="Email Address"
-            margin="normal"
-            name="email"
-            type="email"
-            // value={values.email}
-            variant="outlined"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <TextField
-            fullWidth
-            label="Password"
-            margin="normal"
-            name="password"
-            type="password"
-            variant="outlined"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-
-          <Box sx={{ py: 2 }}>
-            <Button
-              color="primary"
-              fullWidth
-              size="large"
-              type="submit"
-              variant="contained"
-              onClick={Login}
-            >
-              Sign in now
-            </Button>
-          </Box>
-          <Typography
-            color="red"
-            textAlign="center"
-          >{validation}</Typography>
-        </Container>
-      </Box>
-    </>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
-};
-
-export default Login;
+}

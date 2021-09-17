@@ -1,6 +1,6 @@
 import React from "react"
 import "./topbar.css"
-import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import { NotificationsNone, Settings } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 //import "NotificationsNone"
 
@@ -21,7 +21,7 @@ export default function Topber(){
           <div className="topbarIconContainer">
               <Settings />
           </div>
-          <img src="../../../images/me.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="topAvatar"/>
+          <img src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="topAvatar" />
           <span className="logout">log out</span>
         </div>
 
