@@ -19,17 +19,17 @@ import ViewDriver from './pages/driverList/ViewDriver';
 function App() {
   return (
       <Router>
-        {/* <Route exact path="/">
+        <Route exact path="/">
             <Login/>
-        </Route> */}
-       {/* <Topber/>  */}
+        </Route> 
+        <Topber/> 
       <div className="container">
-        {/* <Sidebar/> */}
+        <Sidebar/>
         <Switch>
           <Route path="/home">
             <Home/>
-            <Sidebar/>
-            <Topber/>
+            {/* <Sidebar/>
+            <Topber/> */}
           </Route>
           <Route  path="/users">
             <UserList/>
