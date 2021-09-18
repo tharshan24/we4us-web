@@ -9,18 +9,17 @@ import {
   TextField
 } from '@material-ui/core';
 
-const ViewAvailability = (props) => {
+const ViewRequest = (props) => {
   const [values, setValues] = useState({
     name: 'Katarina',
-    user_Name: 'Smith',
     email: 'demo@devias.io',
     phone: '0774458400',
     total:'15',
-    availability_type:'wedding',
+    request_type:'wedding',
     description:'qqqqqqqqqqqqqqqqqqqqqqqqqqqq',
     food_type:'veg',
-    cooked_time:'12.30',
-    best_befor:'4.30',
+    need_before:'12.30',
+    item_priority:'bnm',
     status:'pending',
 
 
@@ -61,21 +60,6 @@ const ViewAvailability = (props) => {
                 name="name"
                 required
                 value={values.name}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="User_Name"
-                name="lastName"
-               
-                required
-                value={values.user_Name}
                 variant="outlined"
               />
             </Grid>
@@ -128,10 +112,10 @@ const ViewAvailability = (props) => {
             >
               <TextField
                 fullWidth
-                label="Availability type"
-                name="availability_type)"
+                label="Request type"
+                name="request_type)"
                 type="text"
-                value={values.availability_type}
+                value={values.request_type}
                 variant="outlined"
               />
             </Grid>
@@ -170,10 +154,10 @@ const ViewAvailability = (props) => {
             >
               <TextField
                 fullWidth
-                label="Cooked Time"
-                name="cooked_time"
+                label="Need before"
+                name="need_before"
                 type="datetime"
-                value={values.cooked_time}
+                value={values.need_before}
                 variant="outlined"
               />
             </Grid>
@@ -184,10 +168,10 @@ const ViewAvailability = (props) => {
             >
               <TextField
                 fullWidth
-                label="Best before"
-                name="best_before"
-                type="datetime"
-                value={values.best_befor}
+                label="Items_priority"
+                name="items_priority"
+                type="text"
+                value={values.item_priority}
                 variant="outlined"
               />
             </Grid>
@@ -227,4 +211,4 @@ const ViewAvailability = (props) => {
   );
 };
 
-export default ViewAvailability;
+export default ViewRequest;

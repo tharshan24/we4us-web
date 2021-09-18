@@ -15,6 +15,12 @@ import DriverList from './pages/driverList/DriverList';
 import Availability from './pages/availability/Availability';
 import Request from './pages/request/Request';
 import ViewDriver from './pages/driverList/ViewDriver';
+import ViewAvailability from './pages/availability/ViewAvailability';
+import ViewRequest from './pages/request/ViewRequest';
+import CollectionPoint from './pages/collectionPoint/CollectionPoint';
+import ViewCollectionPoint from './pages/collectionPoint/ViewCollectionPoint';
+import SellingPoint from './pages/sellingPoint/SellingPoint';
+import ViewSellingPoint from './pages/sellingPoint/ViewSellingPoint';
 
 function App() {
   return (
@@ -60,6 +66,24 @@ function App() {
           </Route>
           <Route path="/viewDriver/:userId">
             <ViewDriver/>
+          </Route>
+          <Route path="/viewAvailability/:userId">
+            <ViewAvailability />
+          </Route>
+          <Route path="/viewRequest/:userId">
+            <ViewRequest />
+          </Route>
+          <Route path="/collectionPoint">
+            <CollectionPoint/>
+          </Route>
+          <Route path="/viewCollectionPoint/:userId">
+            <ViewCollectionPoint />
+          </Route>
+          <Route path="/sellingPoint">
+            <SellingPoint/>
+          </Route>
+          <Route path="/viewSellingPoint/:userId">
+            <ViewSellingPoint />
           </Route>
         </Switch>  
       </div>

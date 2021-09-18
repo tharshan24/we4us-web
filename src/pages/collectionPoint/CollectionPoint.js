@@ -14,24 +14,19 @@ const columns = [
     width: 150,
   },
   {
-    field: 'userType',
-    headerName: 'User Type',
-    width: 150,
-  },
-//   {
-//     field: 'availabilityType',
-//     headerName: 'Availability Type',
-//     width: 150,
-//   },
-  {
-    field: 'date',
-    headerName: 'Date',
+    field: 'status',
+    headerName: 'Status',
     width: 150,
   },
   {
-    field: 'time',
-    headerName: 'Time',
-    width: 120,
+    field: 'start_Time',
+    headerName: 'Start Date',
+    width: 150,
+  },
+  {
+    field: 'end_Time',
+    headerName: 'End Date',
+    width: 150,
   },
   {
     field: 'city',
@@ -45,7 +40,7 @@ const columns = [
     renderCell: (params) => {
       return (
         <>
-          <Link to={"/ViewRequest/" + params.row.id}>
+          <Link to={"/viewCollectionPoint/" + params.row.id}>
             <button className="userListEdit">View Details</button>
           </Link>
         </>
@@ -57,14 +52,14 @@ const columns = [
 
 
 const rows = [
-  { id: 1, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
-  { id: 2, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
-  { id: 3, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
-  { id: 4, name: 'Snow', userType: 'NGO',date: '21.09.2021', time:' 10.30', city:<Visibility/>,view:'view' },
+  { id: 1, name: 'Snow', status:'pending', start_Time: '10.30',end_Time: '10.30', city:<Visibility/>,view:'view' },
+//   { id: 2, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
+//   { id: 3, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
+//   { id: 4, name: 'Snow', userType: 'NGO',date: '21.09.2021', time:' 10.30', city:<Visibility/>,view:'view' },
 
 ];
 
-export default function Request() {
+export default function CollectionPoint() {
   return (
     <div style={{ height: 500, width: '100%' }}>
       <div>
@@ -72,7 +67,7 @@ export default function Request() {
           color:'#3F51B5',
           fontSize:32,
           fontWeight:600}}>  
-          <center>Request</center>
+          <center>CollectionPoint Point</center>
         </span>
       </div>
       <DataGrid
@@ -85,4 +80,3 @@ export default function Request() {
     </div>
   );
 }
-

@@ -48,14 +48,18 @@ export default function Sidebar() {
                 Request
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Selling Points
-            </li>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Callection Points
-            </li>
+            <Link to="/sellingPoint" className="link">
+              <li className="sidebarListItem">
+                <BarChart className="sidebarIcon" />
+                Selling Points
+              </li>
+            </Link>
+            <Link to='/collectionPoint' className="link">
+              <li className="sidebarListItem">
+                <BarChart className="sidebarIcon" />
+                Collection Points
+              </li>
+            </Link>
           </ul>
         </div>
 

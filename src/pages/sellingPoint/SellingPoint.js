@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
-import { Visibility } from "@material-ui/icons";
+//import { Visibility } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
 const columns = [
@@ -13,26 +13,26 @@ const columns = [
     headerName: 'User name',
     width: 150,
   },
-  {
-    field: 'userType',
-    headerName: 'User Type',
-    width: 150,
-  },
+  // {
+  //   field: 'userType',
+  //   headerName: 'User Type',
+  //   width: 150,
+  // },
 //   {
 //     field: 'availabilityType',
 //     headerName: 'Availability Type',
 //     width: 150,
 //   },
-  {
-    field: 'date',
-    headerName: 'Date',
-    width: 150,
-  },
-  {
-    field: 'time',
-    headerName: 'Time',
-    width: 120,
-  },
+{
+  field: 'start_Time',
+  headerName: 'Start Date',
+  width: 150,
+},
+{
+  field: 'end_Time',
+  headerName: 'End Date',
+  width: 150,
+},
   {
     field: 'city',
     headerName:'City',
@@ -42,29 +42,30 @@ const columns = [
     field: "view",
     headerName: "View",
     width: 150,
-    // renderCell: (params) => {
-    //   return (
-    //     <>
-    //       <Link to={"/view/" + params.row.id}>
-    //         <button className="userListEdit">View Details</button>
-    //       </Link>
-    //     </>
-    //   );
-    // },
+    renderCell: (params) => {
+      return (
+        <>
+          <Link to={"/viewSellingPoint/" + params.row.id}>
+            <button className="userListEdit">View Details</button>
+          </Link>
+        </>
+      );
+    },
   },
 ];
 
 
 
 const rows = [
-  { id: 1, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
-  { id: 2, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
-  { id: 3, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
-  { id: 4, name: 'Snow', userType: 'NGO',date: '21.09.2021', time:' 10.30', city:<Visibility/>,view:'view' },
+  { id: 1, name: 'Snow', status:'pending', start_Time: '10.30',end_Time: '10.30', city:'Jaffna',view:'view' },
+  // { id: 1, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
+  // { id: 2, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
+  // { id: 3, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
+  // { id: 4, name: 'Snow', userType: 'NGO',date: '21.09.2021', time:' 10.30', city:<Visibility/>,view:'view' },
 
 ];
 
-export default function Request() {
+export default function SellingPoint() {
   return (
     <div style={{ height: 500, width: '100%' }}>
       <div>

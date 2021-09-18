@@ -46,7 +46,7 @@ const columns = [
     renderCell: (params) => {
       return (
         <>
-          <Link to={"/view/" + params.row.id}>
+          <Link to={"/viewAvailability/" + params.row.id}>
             <button className="userListEdit">View Details</button>
           </Link>
         </>

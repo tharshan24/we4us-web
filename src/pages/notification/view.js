@@ -55,12 +55,18 @@ import {
           <div className="userUpdate">
             <span className="userUpdateTitle">Description</span>
             <div className="userShowBottom">
-             
-              <div className="userShowInfo">
-              </div>
-              <div className="userShowInfo">
-               
-              </div>
+            <div className="img1">
+            <img
+                src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg"
+                height={100} width={200}
+            />
+            </div> 
+            <div className="img2">
+            <img
+                src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg"
+                height={100} width={200}
+            />
+            </div>
             </div>
             <div className="userUpdateRight">
             <button className="userUpdateButton1">Accept</button>
