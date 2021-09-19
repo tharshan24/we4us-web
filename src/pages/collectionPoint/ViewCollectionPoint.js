@@ -58,6 +58,22 @@ const ViewCollectionPoint = (props) => {
       </div>
     );
 
+  if (!collection) return <div>Not found</div>;
+  /*
+  collection response sample
+  {
+    colpoint_id: 5
+    end_time: "2021-09-24T00:00:00.000Z"
+    name: "carehome"
+    name_en: "Hulannuge"
+    ngo_id: 285
+    start_time: "2021-09-17T00:00:00.000Z"
+    status: 1
+    user_id: 285
+    user_name: "carehome"
+  }
+*/
+
   return (
     <form autoComplete="off" noValidate {...props}>
       <Card>

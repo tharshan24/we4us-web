@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import http from "../../services/httpService";
+import { CircularProgress } from "@material-ui/core";
 
 export default function DriverList() {
   const [data] = useState(userRows);
@@ -68,6 +69,19 @@ export default function DriverList() {
       },
     },
   ];
+
+  if (loading)
+    return (
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
 
   return (
     <div className="userList">
