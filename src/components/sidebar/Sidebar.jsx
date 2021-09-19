@@ -96,7 +96,7 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Driver</h3>
           <ul className="sidebarList">
-            <Link to="driverList" className="link">
+            <Link to="/driverList" className="link">
             <li className="sidebarListItem">
               <WorkOutline className="sidebarIcon" />
               Manage

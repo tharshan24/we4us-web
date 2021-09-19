@@ -7,6 +7,7 @@ import {
   PhoneAndroid,
   // Publish,
 } from "@material-ui/icons";
+import FeaturedPlayListIcon from '@mui/icons-material/FeaturedPlayList';
 import { useParams, useHistory } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import "../notification/user.css";
@@ -94,8 +95,8 @@ export default function ViewDriver() {
               <span className="userShowInfoTitle">{driver.user_name}</span>
             </div>
             <div className="userShowInfo">
-              {/* <CalendarToday className="userShowIcon" /> */}
-              <span className="userShowInfoTitle">12452112</span>
+              <FeaturedPlayListIcon className="userShowIcon" />
+              <span className="userShowInfoTitle">{driver.license_no}</span>
             </div>
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
@@ -121,16 +122,14 @@ export default function ViewDriver() {
             )}
           </div>
           <div className="img2">
-            <img
-              src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg"
-              height={100}
-              width={200}
-            />
+            {driver.license_proof_path && (
+              <img src={driver.license_proof_path} height={100} width={200} />
+            )}
           </div>
           <div className="userUpdateRight">
             <button
               className="userUpdateButton1"
-              onClick={() => handleDriverStatus(1)}
+              onClick={() => handleDriverStatus(0)}
             >
               Accept
             </button>
@@ -138,7 +137,7 @@ export default function ViewDriver() {
           <div className="userUpdateRight">
             <button
               className="userUpdateButton2"
-              onClick={() => handleDriverStatus(0)}
+              onClick={() => handleDriverStatus(1)}
             >
               Reject
             </button>

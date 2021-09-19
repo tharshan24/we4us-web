@@ -11,6 +11,7 @@ import { CircularProgress } from "@material-ui/core";
 export default function UserList() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  //const [data1, setData] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -22,7 +23,16 @@ export default function UserList() {
     };
     fetchUsers();
   }, []);
-  
+  // // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     setLoading(true);
+  //     const { data } = await http.get("/admin/viewShops");
+  //     setData(data.result.row);
+  //     console.log(data.result.row);
+  //     setLoading(false);
+  //   };
+  //   fetchUsers();
+  // // }, []);
 
   // const handleDelete = (id) => {
   //   setData(data.filter((item) => item.id !== id));
