@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import {
   Box,
   Card,
@@ -6,54 +6,70 @@ import {
   CardHeader,
   Divider,
   Grid,
-  TextField
-} from '@material-ui/core';
+  TextField,
+} from "@material-ui/core";
+import { useParams } from "react-router-dom";
+import { CircularProgress } from "@material-ui/core";
+
+import http from "../../services/httpService";
 
 const ViewRequest = (props) => {
+  const { userId } = useParams();
+
+  const [loading, setLoading] = useState(true);
+  const [request, setRequest] = useState();
   const [values, setValues] = useState({
-    name: 'Katarina',
-    email: 'demo@devias.io',
-    phone: '0774458400',
-    total:'15',
-    request_type:'wedding',
-    description:'qqqqqqqqqqqqqqqqqqqqqqqqqqqq',
-    food_type:'veg',
-    need_before:'12.30',
-    item_priority:'bnm',
-    status:'pending',
-
-
-    
+    name: "Katarina",
+    email: "demo@devias.io",
+    phone: "0774458400",
+    total: "15",
+    request_type: "wedding",
+    description: "qqqqqqqqqqqqqqqqqqqqqqqqqqqq",
+    food_type: "veg",
+    need_before: "12.30",
+    item_priority: "bnm",
+    status: "pending",
   });
 
-//   const handleChange = (event) => {
-//     setValues({
-//       ...values,
-//       [event.target.name]: event.target.value
-//     });
-//   };
+  //   const handleChange = (event) => {
+  //     setValues({
+  //       ...values,
+  //       [event.target.name]: event.target.value
+  //     });
+  //   };
+
+  useEffect(() => {
+    const fetctRequest = async () => {
+      setLoading(true);
+      const { data } = await http.get(`/admin/viewRequestById/${userId}`);
+      setRequest(data.result.row[0]);
+      console.log(data.result.row[0]);
+      setLoading(false);
+    };
+    fetctRequest();
+  }, []);
+
+  if (loading)
+    return (
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
 
   return (
-    <form
-      autoComplete="off"
-      noValidate
-      {...props}
-    >
+    <form autoComplete="off" noValidate {...props}>
       <Card>
-        <CardHeader
-          title="Details"
-        />
+        <CardHeader title="Details" />
         <Divider />
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Name"
@@ -63,11 +79,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Email Address"
@@ -77,11 +89,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Phone Number"
@@ -91,11 +99,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Total quantity"
@@ -105,11 +109,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Request type"
@@ -119,11 +119,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Description"
@@ -133,11 +129,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Food Type"
@@ -147,11 +139,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Need before"
@@ -161,11 +149,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Items_priority"
@@ -175,11 +159,7 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Status"
@@ -189,23 +169,17 @@ const ViewRequest = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-            </Grid>
+            <Grid item md={6} xs={12}></Grid>
           </Grid>
         </CardContent>
         <Divider />
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            p: 2
+            display: "flex",
+            justifyContent: "flex-end",
+            p: 2,
           }}
-        >
-        </Box>
+        ></Box>
       </Card>
     </form>
   );

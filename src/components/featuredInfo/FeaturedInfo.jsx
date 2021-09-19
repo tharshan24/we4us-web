@@ -1,9 +1,17 @@
+import React, { useEffect, useState } from "react";
+
 import "./featuredInfo.css";
 import { Typography } from "@material-ui/core";
-import { AccountBalance, Group, HomeWork, Restaurant, ShopTwo } from "@material-ui/icons";
-// import axios from "axios";
+import {
+  AccountBalance,
+  Group,
+  HomeWork,
+  Restaurant,
+  ShopTwo,
+} from "@material-ui/icons";
+import http from "../../services/httpService";
+import axios from "axios";
 // import constants from "../../constants/Constants";
-
 
 export default function FeaturedInfo() {
   // const userCount= async ()=>{
@@ -25,8 +33,41 @@ export default function FeaturedInfo() {
   //     });
 
   // }
-  return (
 
+  const [count, setCount] = useState({
+    public: 0,
+    ngo: 0,
+    carehome: 0,
+    shop: 0,
+    restaurant: 0,
+  });
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      const results = await axios.all([
+        http.get("/admin/countPublic"),
+        http.get("/admin/countNgo"),
+        http.get("/admin/countCarehomes"),
+        http.get("/admin/countShops"),
+        http.get("/admin/countRestaurants"),
+      ]);
+
+      console.log(results);
+
+      if (results[0].data.result?.row[0]) {
+        setCount({
+          public: Object.values(results[0].data.result.row[0])[0],
+          ngo: Object.values(results[1].data.result.row[0])[0],
+          carehome: Object.values(results[2].data.result.row[0])[0],
+          shop: Object.values(results[3].data.result.row[0])[0],
+          restaurant: Object.values(results[4].data.result.row[0])[0],
+        });
+      }
+    };
+
+    fetchCounts();
+  }, []);
+  return (
     <div className="featured">
       {/* <div className="featuredItem">
         <span className="featuredTitle">Public  <Group className="featuredIcon negative"/></span>
@@ -36,42 +77,42 @@ export default function FeaturedInfo() {
       </div> */}
       <div className="featuredItem">
         <Typography component="p" variant="h5">
-          Public <Group className="featuredIcon negative"/>
+          Public <Group className="featuredIcon negative" />
         </Typography>
         <Typography color="text.secondary" sx={{ flex: 1 }}>
-          5
+          {count.public}
         </Typography>
       </div>
       <div className="featuredItem">
         <Typography component="p" variant="h5">
-          NGO <AccountBalance className="featuredIcon negative"/>
+          NGO <AccountBalance className="featuredIcon negative" />
         </Typography>
         <Typography color="text.secondary" sx={{ flex: 1 }}>
-          4
+          {count.ngo}
         </Typography>
       </div>
       <div className="featuredItem">
         <Typography component="p" variant="h5">
-          Care Home <HomeWork className="featuredIcon negative"/>
+          Care Home <HomeWork className="featuredIcon negative" />
         </Typography>
         <Typography color="text.secondary" sx={{ flex: 1 }}>
-          5
+          {count.carehome}
         </Typography>
       </div>
       <div className="featuredItem">
         <Typography component="p" variant="h5">
-          Shop <ShopTwo className="featuredIcon negative"/>
+          Shop <ShopTwo className="featuredIcon negative" />
         </Typography>
         <Typography color="text.secondary" sx={{ flex: 1 }}>
-          5
+          {count.shop}
         </Typography>
       </div>
       <div className="featuredItem">
         <Typography component="p" variant="h5">
-          Restaurant <Restaurant className="featuredIcon negative"/>
+          Restaurant <Restaurant className="featuredIcon negative" />
         </Typography>
         <Typography color="text.secondary" sx={{ flex: 1 }}>
-          5
+          {count.restaurant}
         </Typography>
       </div>
       {/* <div className="featuredItem">

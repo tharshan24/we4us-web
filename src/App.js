@@ -1,71 +1,71 @@
-import Login from './components/login';
-import Topber from './components/topbar/Topbar';
-import Sidebar from './components/sidebar/Sidebar';
+import Login from "./components/login";
+import Topber from "./components/topbar/Topbar";
+import Sidebar from "./components/sidebar/Sidebar";
 import "./App.css";
-import Home from './pages/home/Home';
+import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import UserList from './pages/userList/UserList';
-import Notification from './pages/notification/Notification';
-import View from './pages/notification/view'
-import User from './pages/user/User';
-import WidgetSm from './components/widgetSm/WidgetSm';
-import Transactions from './pages/transactions/Transactions';
+import UserList from "./pages/userList/UserList";
+import Notification from "./pages/notification/Notification";
+import View from "./pages/notification/view";
+import User from "./pages/user/User";
+import WidgetSm from "./components/widgetSm/WidgetSm";
+import Transactions from "./pages/transactions/Transactions";
 //import Analytics from './pages/analytics/Analytics';
-import DriverList from './pages/driverList/DriverList';
-import Availability from './pages/availability/Availability';
-import Request from './pages/request/Request';
-import ViewDriver from './pages/driverList/ViewDriver';
-import ViewAvailability from './pages/availability/ViewAvailability';
-import ViewRequest from './pages/request/ViewRequest';
-import CollectionPoint from './pages/collectionPoint/CollectionPoint';
-import ViewCollectionPoint from './pages/collectionPoint/ViewCollectionPoint';
-import SellingPoint from './pages/sellingPoint/SellingPoint';
-import ViewSellingPoint from './pages/sellingPoint/ViewSellingPoint';
+import DriverList from "./pages/driverList/DriverList";
+import Availability from "./pages/availability/Availability";
+import Request from "./pages/request/Request";
+import ViewDriver from "./pages/driverList/ViewDriver";
+import ViewAvailability from "./pages/availability/ViewAvailability";
+import ViewRequest from "./pages/request/ViewRequest";
+import CollectionPoint from "./pages/collectionPoint/CollectionPoint";
+import ViewCollectionPoint from "./pages/collectionPoint/ViewCollectionPoint";
+import SellingPoint from "./pages/sellingPoint/SellingPoint";
+import ViewSellingPoint from "./pages/sellingPoint/ViewSellingPoint";
 
 function App() {
   return (
-      <Router>
-        <Route exact path="/">
-            <Login/>
-        </Route> 
-        <Topber/> 
+    <Router>
+      <Route exact path="/">
+        <Login />
+      </Route>
+      <Topber />
       <div className="container">
-        <Sidebar/>
+        <Sidebar />
         <Switch>
           <Route path="/home">
-            <Home/>
+            <Home />
             {/* <Sidebar/>
             <Topber/> */}
           </Route>
-          <Route  path="/users">
-            <UserList/>
+          <Route path="/users">
+            <UserList />
           </Route>
-          <Route  path="/notification">
-            <Notification/>
+          <Route path="/notification">
+            <Notification />
           </Route>
-          <Route  path="/view/">
-            <View/>
+          <Route path="/view/">
+            <View />
           </Route>
           <Route path="/user/:userId">
             <User />
           </Route>
-          <Route  path="/user">
-            <WidgetSm/>
+          <Route path="/user">
+            <WidgetSm />
           </Route>
           <Route path="/transactions">
-            <Transactions/>
+            <Transactions />
           </Route>
           <Route path="/availability">
-            <Availability/>
+            <Availability />
           </Route>
           <Route path="/request">
-            <Request/>
+            <Request />
           </Route>
           <Route path="/driverList">
-            <DriverList/>
+            <DriverList />
           </Route>
           <Route path="/viewDriver/:userId">
-            <ViewDriver/>
+            <ViewDriver />
           </Route>
           <Route path="/viewAvailability/:userId">
             <ViewAvailability />
@@ -74,20 +74,20 @@ function App() {
             <ViewRequest />
           </Route>
           <Route path="/collectionPoint">
-            <CollectionPoint/>
+            <CollectionPoint />
           </Route>
           <Route path="/viewCollectionPoint/:userId">
             <ViewCollectionPoint />
           </Route>
           <Route path="/sellingPoint">
-            <SellingPoint/>
+            <SellingPoint />
           </Route>
           <Route path="/viewSellingPoint/:userId">
             <ViewSellingPoint />
           </Route>
-        </Switch>  
+        </Switch>
       </div>
-      </Router>
+    </Router>
   );
 }
 

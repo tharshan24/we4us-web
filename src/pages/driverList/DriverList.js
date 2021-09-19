@@ -3,15 +3,30 @@ import { DataGrid } from "@material-ui/data-grid";
 // import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import http from "../../services/httpService";
 
 export default function DriverList() {
   const [data] = useState(userRows);
+  const [drivers, setDrivers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-//   const handleDelete = (id) => {
-//     setData(data.filter((item) => item.id !== id));
-//   };
-  
+  useEffect(() => {
+    const fetchDrivers = async () => {
+      setLoading(true);
+      const { data } = await http.get("/admin/viewAllDrivers/");
+      setDrivers(data.result.row);
+      console.log(data.result.row);
+      setLoading(false);
+    };
+    fetchDrivers();
+  }, []);
+
+  //   const handleDelete = (id) => {
+  //     setData(data.filter((item) => item.id !== id));
+  //   };
+
   const columns = [
     { field: "id", headerName: "ID", width: 100 },
     {
@@ -27,9 +42,7 @@ export default function DriverList() {
         );
       },
     },
-    { field: "email",
-     headerName: "Email",
-      width: 200 },
+    { field: "email", headerName: "Email", width: 200 },
     {
       field: "status",
       headerName: "Status",
@@ -49,7 +62,7 @@ export default function DriverList() {
           <>
             <Link to={"/viewDriver/" + params.row.id}>
               <button className="userListEdit">ViewDriver</button>
-            </Link>          
+            </Link>
           </>
         );
       },
@@ -59,10 +72,10 @@ export default function DriverList() {
   return (
     <div className="userList">
       <DataGrid
-        rows={data}
+        rows={drivers}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        // pageSize={8}
         //checkboxSelection
       />
     </div>

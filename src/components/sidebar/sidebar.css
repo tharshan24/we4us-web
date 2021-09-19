@@ -1,43 +1,44 @@
 .sidebar {
-  flex: 1;
-  height: calc(150vh - 50px);
-  background-color: #3F51B5;
+  /* flex: 1; */
+  /* height: calc(150vh - 50px); */
+  background-color: #3f51b5;
   position: sticky;
-  top: 50px;
+  /* top: 50px; */
+  height: 100vh;
 }
-  .sidebarWrapper {
-    padding: 20px;
-    color: black;
-  }
-  
-  .sidebarMenu {
-    margin-bottom: 10px;
-  }
-  
-  .sidebarTitle {
-    font-size: 18px;
-    color: rgb(187, 186, 186);
-  }
-  
-  .sidebarList {
-    list-style: none;
-    padding: 5px;
-  }
-  
-  .sidebarListItem {
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-  }
-  
-  .sidebarListItem.active,
-  .sidebarListItem:hover {
-    background-color: rgb(240, 240, 255);
-  }
-  
-  .sidebarIcon{
-      margin-right: 5px;
-      font-size: 20px !important;
-  }
+.sidebarWrapper {
+  padding: 20px;
+  color: black;
+}
+
+.sidebarMenu {
+  margin-bottom: 10px;
+}
+
+.sidebarTitle {
+  font-size: 18px;
+  color: rgb(187, 186, 186);
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 5px;
+}
+
+.sidebarListItem {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.sidebarListItem.active,
+.sidebarListItem:hover {
+  background-color: rgb(240, 240, 255);
+}
+
+.sidebarIcon {
+  margin-right: 5px;
+  font-size: 20px !important;
+}
