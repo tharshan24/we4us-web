@@ -105,7 +105,7 @@ const ViewAvailability = (props) => {
                 fullWidth
                 label="Phone Number"
                 name="phone"
-                type="number"
+                required
                 value={availability.phone}
                 variant="outlined"
               />
@@ -115,7 +115,7 @@ const ViewAvailability = (props) => {
                 fullWidth
                 label="Total quantity"
                 name="total"
-                type="number"
+                required
                 value={availability.total_quantity}
                 variant="outlined"
               />

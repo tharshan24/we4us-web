@@ -1,25 +1,28 @@
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
 import { DataGrid } from '@material-ui/data-grid';
+import http from "../../services/httpService";
+import { CircularProgress } from "@material-ui/core";
+import moment from "moment";
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 100 },
   {
-    field: 'userName',
-    headerName: 'User name',
+    field: 'user_name',
+    headerName: 'Driver Name',
     width: 150,
   },
+  // {
+  //   field: 'name',
+  //   headerName: 'Name',
+  //   width: 150,
+  // },
   {
-    field: 'name',
-    headerName: 'Name',
-    width: 150,
-  },
-  {
-    field: 'from',
+    field: 'user_name',
     headerName: 'Creater',
     width: 150,
   },
   {
-    field: 'to',
+    field: 'user_name',
     headerName: 'Requster',
     width: 150,
   },
@@ -35,7 +38,7 @@ const columns = [
     width: 120,
   },
   {
-    field: 'paymentType',
+    field: 'payment_Type',
     headerName: 'Payment Type',
     width: 150,
   },
@@ -71,6 +74,44 @@ const rows = [
 ];
 
 export default function Transactions() {
+  //backend connection
+  const [tracsactions, setTracsactions] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetctTracsactions = async () => {
+      setLoading(true);
+      const { data } = await http.get("/admin/deliveryPaymentFilter");
+      const avail = data.result.row;
+      for (let i = 0; i < data.result.row.length; i++) {
+        data.result.row[i]["date"] = moment(
+          data.result.row[i]["created_at"]
+        ).format("YYYY/MM/DD");
+
+        data.result.row[i]["time"] = moment(
+          data.result.row[i]["created_at"]
+        ).format("HH:mm");
+      }
+      setTracsactions(avail);
+      setLoading(false);
+    };
+    fetctTracsactions();
+  }, []);
+
+  if (loading)
+    return (
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+
+
   return (
     <div style={{ height: 500, width: '100%' }}>
       <div>
@@ -82,7 +123,7 @@ export default function Transactions() {
         </span>
       </div>
       <DataGrid
-        rows={rows}
+        rows={tracsactions}
         columns={columns}
         pageSize={6}
        // checkboxSelection

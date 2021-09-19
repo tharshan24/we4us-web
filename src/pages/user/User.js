@@ -59,7 +59,7 @@ export default function User() {
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-            <img
+            {/* <img
               src={
                 user.profile_picture_path
                   ? user.profile_picture_path
@@ -67,7 +67,7 @@ export default function User() {
               }
               alt=""
               className="userShowImg"
-            />
+            /> */}
             <div className="userShowTopTitle">
               <span className="userShowUsername">{user.user_name}</span>
               <span className="userShowUserTitle">{user.user_type_name}</span>
