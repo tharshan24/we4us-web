@@ -8,22 +8,22 @@ import { useState, useEffect } from "react";
 import http from "../../services/httpService";
 import { CircularProgress } from "@material-ui/core";
 
-export default function UserList() {
+export default function Shop() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   //const [data1, setData] = useState([]);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchShops = async () => {
       setLoading(true);
-      const { data } = await http.get("/admin/viewAllPublic");
+      const { data } = await http.get("/admin/viewShops");
       setData(data.result.row);
       console.log(data.result.row);
       setLoading(false);
     };
-    fetchUsers();
+    fetchShops();
   }, []);
-  
+ 
   const columns = [
     { field: "id", headerName: "ID", width: 100 },
    
@@ -45,7 +45,7 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/viewUser/" + params.row.id}>
               <button className="userListEdit">View</button>
             </Link>
             {/* <DeleteOutline
@@ -77,7 +77,7 @@ export default function UserList() {
         rows={data}
         disableSelectionOnClick
         columns={columns}
-        pageSize={4}
+        pageSize={8}
         // checkboxSelection
       />
     </div>

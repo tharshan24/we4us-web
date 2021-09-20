@@ -57,7 +57,7 @@ export default function ViewDriver() {
         <CircularProgress />
       </div>
     );
-
+   
   return (
     <div className="user">
       <Snackbar
@@ -79,11 +79,9 @@ export default function ViewDriver() {
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-            <img
-              src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-              className="userShowImg"
-            />
+          {driver.profile_path && (
+              <img src={driver.profile_path.split(" ")[0]} height={10} width={20} />
+            )}
             <div className="userShowTopTitle">
               <span className="userShowUsername">{`${driver.first_name} ${driver.last_name}`}</span>
             </div>
@@ -113,12 +111,13 @@ export default function ViewDriver() {
             </div>
           </div>
         </div>
+
         <div className="userUpdate">
           <span className="userUpdateTitle">Description</span>
           <div className="userShowBottom"></div>
           <div className="img1">
             {driver.license_proof_path && (
-              <img src={driver.license_proof_path} height={100} width={200} />
+              <img src={driver.license_proof_path.split(" ")[0]} height={100} width={200} />
             )}
           </div>
           <div className="img2">
@@ -129,7 +128,7 @@ export default function ViewDriver() {
           <div className="userUpdateRight">
             <button
               className="userUpdateButton1"
-              onClick={() => handleDriverStatus(0)}
+              onClick={() => handleDriverStatus(1)}
             >
               Accept
             </button>
@@ -137,7 +136,7 @@ export default function ViewDriver() {
           <div className="userUpdateRight">
             <button
               className="userUpdateButton2"
-              onClick={() => handleDriverStatus(1)}
+              onClick={() => handleDriverStatus(0)}
             >
               Reject
             </button>

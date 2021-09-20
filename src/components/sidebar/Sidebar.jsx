@@ -1,13 +1,10 @@
 import "./sidebar.css";
 import {
   LineStyle,
-  Timeline,
   PermIdentity,
   AttachMoney,
   BarChart,
-  DynamicFeed,
   WorkOutline,
-  Report,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -78,10 +75,10 @@ export default function Sidebar() {
                 Transactions
               </li>
             </Link>
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports
-            </li>
+            </li> */}
           </ul>
         </div>
         {/* <div className="sidebarMenu">
@@ -106,10 +103,10 @@ export default function Sidebar() {
               <Timeline className="sidebarIcon" />
               Analytics
             </li> */}
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <Report className="sidebarIcon" />
               Reports
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

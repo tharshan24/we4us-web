@@ -21,6 +21,11 @@ import CollectionPoint from "./pages/collectionPoint/CollectionPoint";
 import ViewCollectionPoint from "./pages/collectionPoint/ViewCollectionPoint";
 import SellingPoint from "./pages/sellingPoint/SellingPoint";
 import ViewSellingPoint from "./pages/sellingPoint/ViewSellingPoint";
+import Ngo from "./pages/userList/Ngo";
+import Shops from "./pages/userList/Shop";
+import Restaurant from "./pages/userList/Restaurant";
+import Carehome from "./pages/userList/CareHome";
+import ViewUser from "./pages/user/ViewUser";
 
 function App() {
   return (
@@ -39,6 +44,21 @@ function App() {
           </Route>
           <Route path="/users">
             <UserList />
+          </Route>
+          <Route path="/ngo">
+            <Ngo />
+          </Route>
+          <Route path="/shops">
+            <Shops />
+          </Route>
+          <Route path="/restaurant">
+            <Restaurant/>
+          </Route>
+          <Route path="/careHome">
+            <Carehome/>
+          </Route>
+          <Route path="/viewUser/:userId">
+            <ViewUser />
           </Route>
           <Route path="/notification">
             <Notification />

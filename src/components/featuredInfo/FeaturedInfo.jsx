@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import "./featuredInfo.css";
-import { Typography } from "@material-ui/core";
+import { Typography,Button } from "@material-ui/core";
 import {
   AccountBalance,
   Group,
@@ -10,6 +9,7 @@ import {
   ShopTwo,
 } from "@material-ui/icons";
 import http from "../../services/httpService";
+import { Link } from "react-router-dom";
 import axios from "axios";
 // import constants from "../../constants/Constants";
 
@@ -69,12 +69,6 @@ export default function FeaturedInfo() {
   }, []);
   return (
     <div className="featured">
-      {/* <div className="featuredItem">
-        <span className="featuredTitle">Public  <Group className="featuredIcon negative"/></span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">10</span>
-        </div>
-      </div> */}
       <div className="featuredItem">
         <Typography component="p" variant="h5">
           Public <Group className="featuredIcon negative" />
@@ -82,6 +76,9 @@ export default function FeaturedInfo() {
         <Typography color="text.secondary" sx={{ flex: 1 }}>
           {count.public}
         </Typography>
+        <Link to="/users" className="link">
+            <span className="view">View</span>
+         </Link>
       </div>
       <div className="featuredItem">
         <Typography component="p" variant="h5">
@@ -90,6 +87,9 @@ export default function FeaturedInfo() {
         <Typography color="text.secondary" sx={{ flex: 1 }}>
           {count.ngo}
         </Typography>
+        <Link to="/ngo" className="link">
+            <span className="view">View</span>
+         </Link>
       </div>
       <div className="featuredItem">
         <Typography component="p" variant="h5">
@@ -98,6 +98,9 @@ export default function FeaturedInfo() {
         <Typography color="text.secondary" sx={{ flex: 1 }}>
           {count.carehome}
         </Typography>
+        <Link to="/careHome" className="link">
+            <span className="view">View</span>
+         </Link>
       </div>
       <div className="featuredItem">
         <Typography component="p" variant="h5">
@@ -106,6 +109,9 @@ export default function FeaturedInfo() {
         <Typography color="text.secondary" sx={{ flex: 1 }}>
           {count.shop}
         </Typography>
+        <Link to="/shops" className="link">
+            <span className="view">View</span>
+         </Link>
       </div>
       <div className="featuredItem">
         <Typography component="p" variant="h5">
@@ -114,6 +120,9 @@ export default function FeaturedInfo() {
         <Typography color="text.secondary" sx={{ flex: 1 }}>
           {count.restaurant}
         </Typography>
+        <Link to="/restaurant" className="link">
+            <span className="view">View</span>
+         </Link>
       </div>
       {/* <div className="featuredItem">
         <span className="featuredTitle">NGO <AccountBalance className="featuredIcon negative"/></span>

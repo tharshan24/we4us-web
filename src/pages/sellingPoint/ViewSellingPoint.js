@@ -10,13 +10,28 @@ import {
 } from '@material-ui/core';
 
 const ViewSellingPoint = (props) => {
-  const [values] = useState({
+  const { userId } = useParams();
+  const [sellingPoint, setSellingPoint] = useState();
+  const [values, setValues] = useState({
     name: 'Katarina',
     email: 'demo@devias.io',
     phone: '0774458400',
     description:'qqqqqqqqqqqqqqqqqqqqqqqqqqqq',
     status:'pending',
   });
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      setLoading(true);
+      const { data } = await http.get(`/admin/viewSellPointById/${userId}`);
+      setSellingPoint(data.result.row[0]);
+      console.log(data.result.row[0]);
+      setLoading(false);
+    };
+    fetchUser();
+  }, []);
 
 //   const handleChange = (event) => {
 //     setValues({
@@ -51,7 +66,7 @@ const ViewSellingPoint = (props) => {
                 label="Name"
                 name="name"
                 required
-                value={values.name}
+                value={sellingPoint.name}
                 variant="outlined"
               />
             </Grid>
@@ -65,7 +80,7 @@ const ViewSellingPoint = (props) => {
                 label="Email Address"
                 name="email"
                 required
-                value={values.email}
+                value={sellingPoint.email}
                 variant="outlined"
               />
             </Grid>
@@ -79,7 +94,7 @@ const ViewSellingPoint = (props) => {
                 label="Phone Number"
                 name="phone"
                 type="number"
-                value={values.phone}
+                value={sellingPoint.phone}
                 variant="outlined"
               />
             </Grid>
@@ -93,7 +108,7 @@ const ViewSellingPoint = (props) => {
                 label="Description"
                 name="description"
                 type="text"
-                value={values.description}
+                value={sellingPoint.description}
                 variant="outlined"
               />
             </Grid>

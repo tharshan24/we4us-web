@@ -21,7 +21,7 @@ const ViewAvailability = (props) => {
     name: "Katarina",
     user_Name: "Smith",
     email: "demo@devias.io",
-    phone: "0774458400",
+    mobile_numbe: "0774458400",
     total: "15",
     availability_type: "wedding",
     description: "qqqqqqqqqqqqqqqqqqqqqqqqqqqq",
@@ -73,7 +73,7 @@ const ViewAvailability = (props) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Name"
+                label="Availability Name"
                 name="name"
                 required
                 value={availability.name}
@@ -83,7 +83,7 @@ const ViewAvailability = (props) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="User_Name"
+                label="Creater Name"
                 name="lastName"
                 required
                 value={availability.user_name}
@@ -93,7 +93,7 @@ const ViewAvailability = (props) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Email Address"
+                label="Creater Email Address"
                 name="email"
                 required
                 value={availability.email}
@@ -103,10 +103,10 @@ const ViewAvailability = (props) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Phone Number"
-                name="phone"
+                label="Creater Phone Number"
+                name="mobile_number"
                 required
-                value={availability.phone}
+                value={availability.mobile_number}
                 variant="outlined"
               />
             </Grid>

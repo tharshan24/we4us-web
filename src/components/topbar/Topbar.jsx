@@ -1,6 +1,6 @@
 import React from "react";
 import "./topbar.css";
-import { NotificationsNone, Settings } from "@material-ui/icons";
+//import { NotificationsNone, Settings } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 //import "NotificationsNone"
 
@@ -18,9 +18,9 @@ export default function Topber() {
               <span className="topIconBadge">2</span>
              </Link> */}
           </div>
-          <div className="topbarIconContainer">
+          {/* <div className="topbarIconContainer">
             <Settings />
-          </div>
+          </div> */}
           <img
             src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
             alt=""

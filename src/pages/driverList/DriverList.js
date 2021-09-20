@@ -24,14 +24,13 @@ export default function DriverList() {
     fetchDrivers();
   }, []);
 
-  //   const handleDelete = (id) => {
-  //     setData(data.filter((item) => item.id !== id));
-  //   };
-
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
+    { field: "id",
+     headerName: "ID",
+      width: 100,
+     },
     {
-      field: "user",
+      field: "user_name",
       headerName: "Driver",
       width: 200,
       renderCell: (params) => {
@@ -48,6 +47,13 @@ export default function DriverList() {
       field: "status",
       headerName: "Status",
       width: 120,
+      renderCell: (params)=>{
+        return(
+          <>
+            {params.row.status}
+          </>
+        );
+      }
     },
     // {
     //   field: "type",

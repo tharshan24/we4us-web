@@ -18,11 +18,11 @@ import {
         <div className="userContainer">
           <div className="userShow">
             <div className="userShowTop">
-              <img
+              {/* <img
                 src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                 alt=""
                 className="userShowImg"
-              />
+              /> */}
               <div className="userShowTopTitle">
                 <span className="userShowUsername">Anna Becker</span>
               </div>
