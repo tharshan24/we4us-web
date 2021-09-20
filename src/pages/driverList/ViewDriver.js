@@ -126,9 +126,9 @@ export default function ViewDriver() {
             )}
           </div>
           <div className="userUpdateRight">
-            <button
+            {/* <button
               className="userUpdateButton1"
-              onClick={() => handleDriverStatus(1)}
+              onClick={() => handleDriverStatus(1)} 
             >
               Accept
             </button>
@@ -139,6 +139,13 @@ export default function ViewDriver() {
               onClick={() => handleDriverStatus(0)}
             >
               Reject
+            </button> */}
+            <button className="userUpdateButton1"
+              onClick={e =>
+                  window.confirm("Are you sure you wish to accept") &&
+                  handleDriverStatus(1)
+              } >
+              Confirm
             </button>
           </div>
         </div>

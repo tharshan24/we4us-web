@@ -121,7 +121,7 @@
   }
   
   .userUpdateRight{
-      width: auto;
+      display: flex;
       height: 40px;
       justify-content: space-around;
   }
@@ -152,7 +152,7 @@
       border: none;
       padding: 5px;
       cursor: pointer;
-      background-color: #3F51B5;
+      background-color: teal;
       color: white;
       font-weight: 600;
       width: 100px;
