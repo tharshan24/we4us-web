@@ -79,8 +79,8 @@ export default function ViewDriver() {
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-          {driver.profile_path && (
-              <img src={driver.profile_path.split(" ")[0]} height={10} width={20} />
+          {driver.profile_picture_path && (
+              <img src={driver.profile_picture_path.split(" ")[0]} height={10} width={20} />
             )}
             <div className="userShowTopTitle">
               <span className="userShowUsername">{`${driver.first_name} ${driver.last_name}`}</span>
@@ -122,7 +122,7 @@ export default function ViewDriver() {
           </div>
           <div className="img2">
             {driver.license_proof_path && (
-              <img src={driver.license_proof_path} height={100} width={200} />
+              <img src={driver.vehicle_book_proof.split(" ")[0]} height={100} width={200} />
             )}
           </div>
           <div className="userUpdateRight">

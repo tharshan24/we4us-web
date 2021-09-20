@@ -10,7 +10,6 @@ import {
   TextField,
 } from "@material-ui/core";
 import { useParams } from "react-router-dom";
-
 import http from "../../services/httpService";
 import moment from "moment";
 
@@ -156,7 +155,7 @@ const ViewAvailability = (props) => {
                 label="Cooked Time"
                 name="cooked_time"
                 type="datetime"
-                value={moment(availability.cooked_time).format("HH:mm")}
+                value={moment(availability.cooked_time).format("YYYY/MM/DD  HH:mm")}
                 variant="outlined"
               />
             </Grid>
@@ -166,7 +165,7 @@ const ViewAvailability = (props) => {
                 label="Best before"
                 name="best_before"
                 type="datetime"
-                value={moment(availability.best_before).format("HH:mm")}
+                value={moment(availability.best_before).format("YYYY/MM/DD  HH:mm")}
                 variant="outlined"
               />
             </Grid>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import {
   Box,
   Card,
@@ -8,6 +8,9 @@ import {
   Grid,
   TextField
 } from '@material-ui/core';
+import { useParams } from "react-router-dom";
+import http from "../../services/httpService";
+import moment from "moment";
 
 const ViewSellingPoint = (props) => {
   const { userId } = useParams();
@@ -93,7 +96,7 @@ const ViewSellingPoint = (props) => {
                 fullWidth
                 label="Phone Number"
                 name="phone"
-                type="number"
+                requireds
                 value={sellingPoint.phone}
                 variant="outlined"
               />

@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { CircularProgress } from "@material-ui/core";
+import moment from "moment";
 
 import http from "../../services/httpService";
 
@@ -22,13 +23,14 @@ const ViewRequest = (props) => {
     name: "Katarina",
     email: "demo@devias.io",
     phone: "0774458400",
+    user_id: "12",
     total: "15",
     request_type: "wedding",
     description: "qqqqqqqqqqqqqqqqqqqqqqqqqqqq",
     food_type: "veg",
     need_before: "12.30",
-    item_priority: "bnm",
-    status: "pending",
+    user_type_name: "bnm",
+    name_en: "pending",
   });
 
   //   const handleChange = (event) => {
@@ -73,9 +75,19 @@ const ViewRequest = (props) => {
               <TextField
                 fullWidth
                 label="Name"
-                name="name"
+                name="user_name"
                 required
-                value={values.name}
+                value={request.user_name}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="Requester_id"
+                name="user_id"
+                required
+                value={request.user_id}
                 variant="outlined"
               />
             </Grid>
@@ -85,7 +97,7 @@ const ViewRequest = (props) => {
                 label="Email Address"
                 name="email"
                 required
-                value={values.email}
+                value={request.email}
                 variant="outlined"
               />
             </Grid>
@@ -93,19 +105,9 @@ const ViewRequest = (props) => {
               <TextField
                 fullWidth
                 label="Phone Number"
-                name="phone"
-                type="number"
-                value={values.phone}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label="Total quantity"
-                name="total"
-                type="number"
-                value={values.total}
+                name="mobile_number"
+                required
+                value={request.mobile_number}
                 variant="outlined"
               />
             </Grid>
@@ -113,9 +115,9 @@ const ViewRequest = (props) => {
               <TextField
                 fullWidth
                 label="Request type"
-                name="request_type)"
+                name="request_type"
                 type="text"
-                value={values.request_type}
+                value={request.request_type}
                 variant="outlined"
               />
             </Grid>
@@ -125,17 +127,17 @@ const ViewRequest = (props) => {
                 label="Description"
                 name="description"
                 type="text"
-                value={values.description}
+                value={request.description}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Food Type"
-                name="food_type"
-                type="text"
-                value={values.food_type}
+                label="Create Date"
+                name="created_at"
+                type="datetime"
+                value={moment(request.created_at).format("YYYY/MM/DD  HH:mm")}
                 variant="outlined"
               />
             </Grid>
@@ -145,27 +147,27 @@ const ViewRequest = (props) => {
                 label="Need before"
                 name="need_before"
                 type="datetime"
-                value={values.need_before}
+                value={request.need_before}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Items_priority"
-                name="items_priority"
+                label="User Type"
+                name="user_type_name"
                 type="text"
-                value={values.item_priority}
+                value={request.user_type_name}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Status"
-                name="status"
+                label="City"
+                name="name_en"
                 type="text"
-                value={values.status}
+                value={request.name_en}
                 variant="outlined"
               />
             </Grid>

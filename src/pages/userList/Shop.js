@@ -33,11 +33,11 @@ export default function Shop() {
       headerName: "Status",
       width: 120,
     },
-    {
-      field: "user_type_name",
-      headerName: "User Type",
-      width: 160,
-    },
+    // {
+    //   field: "user_type_name",
+    //   headerName: "User Type",
+    //   width: 160,
+    // },
     {
       field: "action",
       headerName: "Action",
@@ -72,6 +72,19 @@ export default function Shop() {
     );
 
   return (
+    <div style={{ height: 350, width: "100%" }}>
+    <div>
+      <span
+        style={{
+          textAlign: "center",
+          color: "#3F51B5",
+          fontSize: 24,
+          fontWeight: 500,
+        }}
+      >
+      <center> Shop </center>
+      </span>
+    </div>
     <div className="userList">
       <DataGrid
         rows={data}
@@ -81,5 +94,6 @@ export default function Shop() {
         // checkboxSelection
       />
     </div>
+  </div>
   );
 }

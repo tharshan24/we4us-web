@@ -10,8 +10,9 @@ import {
   TextField,
 } from "@material-ui/core";
 import { useParams } from "react-router-dom";
-
+import moment from "moment";
 import http from "../../services/httpService";
+import { GridAddIcon } from "@material-ui/data-grid";
 
 const ViewCollectionPoint = (props) => {
   const { userId } = useParams();
@@ -21,10 +22,14 @@ const ViewCollectionPoint = (props) => {
 
   const [values] = useState({
     name: "Katarina",
+    ngo_id:"45",
     email: "demo@devias.io",
-    phone: "0774458400",
+    mobile_number: "0774458400",
+    name_en:"Jaffna",
     description: "qqqqqqqqqqqqqqqqqqqqqqqqqqqq",
     status: "pending",
+    start_time:"2021/4/5",
+    end_time:"2021/12/2",
   });
 
   useEffect(() => {
@@ -84,7 +89,7 @@ const ViewCollectionPoint = (props) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Name"
+                label="Creater"
                 name="name"
                 required
                 value={collection.name}
@@ -94,10 +99,20 @@ const ViewCollectionPoint = (props) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
+                label="Creater Id"
+                name="ngo_id"
+                required
+                value={collection.ngo_id}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
                 label="Email Address"
                 name="email"
                 required
-                value={values.email}
+                value={collection.email}
                 variant="outlined"
               />
             </Grid>
@@ -105,9 +120,19 @@ const ViewCollectionPoint = (props) => {
               <TextField
                 fullWidth
                 label="Phone Number"
-                name="phone"
-                type="number"
-                value={values.phone}
+                name="mobile_number"
+                required
+                value={collection.mobile_number}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+            <TextField
+                fullWidth
+                label="City"
+                name="name_en"
+                required
+                value={collection.name_en}
                 variant="outlined"
               />
             </Grid>
@@ -117,7 +142,27 @@ const ViewCollectionPoint = (props) => {
                 label="Description"
                 name="description"
                 type="text"
-                value={values.description}
+                value={collection.description}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="Start Time"
+                name="start_time"
+                type="datetime"
+                value={moment(collection.start_time).format("YYYY/MM/DD  HH:mm")}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="End Time"
+                name="end_time"
+                type="datetime"
+                value={moment(collection.end_time).format("YYYY/MM/DD  HH:mm")}
                 variant="outlined"
               />
             </Grid>

@@ -4,7 +4,7 @@ import { DataGrid } from "@material-ui/data-grid";
 // import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import { DialogTitle } from '@material-ui/core';
 import http from "../../services/httpService";
 import { CircularProgress } from "@material-ui/core";
 
@@ -33,11 +33,11 @@ export default function Ngo() {
       headerName: "Status",
       width: 120,
     },
-    {
-      field: "user_type_name",
-      headerName: "User Type",
-      width: 160,
-    },
+    // {
+    //   field: "user_type",
+    //   headerName: "User Type",
+    //   width: 160,
+    // },
     {
       field: "action",
       headerName: "Action",
@@ -72,14 +72,28 @@ export default function Ngo() {
     );
 
   return (
-    <div className="userList">
-      <DataGrid
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        // checkboxSelection
-      />
+    <div style={{ height: 350, width: "100%" }}>
+      <div>
+        <span
+          style={{
+            textAlign: "center",
+            color: "#3F51B5",
+            fontSize: 24,
+            fontWeight: 500,
+          }}
+        >
+        <center> Ngo</center>
+        </span>
+      </div>
+      <div className="userList">
+        <DataGrid
+          rows={data}
+          disableSelectionOnClick
+          columns={columns}
+          pageSize={8}
+          // checkboxSelection
+        />
+      </div>
     </div>
   );
 }

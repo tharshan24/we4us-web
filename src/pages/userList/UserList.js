@@ -72,14 +72,28 @@ export default function UserList() {
     );
 
   return (
-    <div className="userList">
-      <DataGrid
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={4}
-        // checkboxSelection
-      />
+    <div style={{ height: 350, width: "100%" }}>
+      <div>
+        <span
+          style={{
+            textAlign: "center",
+            color: "#3F51B5",
+            fontSize: 24,
+            fontWeight: 500,
+          }}
+        >
+        <center> Public </center>
+        </span>
+      </div>
+      <div className="userList">
+        <DataGrid
+          rows={data}
+          disableSelectionOnClick
+          columns={columns}
+          pageSize={8}
+          // checkboxSelection
+        />
+      </div>
     </div>
   );
 }
