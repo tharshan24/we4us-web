@@ -4,134 +4,180 @@ import {
   Card,
   CardContent,
   CardHeader,
+  CircularProgress,
   Divider,
   Grid,
-  TextField
-} from '@material-ui/core';
+  TextField,
+} from "@material-ui/core";
 import { useParams } from "react-router-dom";
-import http from "../../services/httpService";
 import moment from "moment";
+import http from "../../services/httpService";
+import { GridAddIcon } from "@material-ui/data-grid";
 
 const ViewSellingPoint = (props) => {
   const { userId } = useParams();
-  const [sellingPoint, setSellingPoint] = useState();
-  const [values, setValues] = useState({
-    name: 'Katarina',
-    email: 'demo@devias.io',
-    phone: '0774458400',
-    description:'qqqqqqqqqqqqqqqqqqqqqqqqqqqq',
-    status:'pending',
+
+  const [collection, setColleciton] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const [values] = useState({
+    sellpoint_id: 1,
+    shop_id: 26,
+    status: 1,
+    start_time: "2021-09-21T06:36:00.000Z",
+    end_time: "2021-09-23T08:36:00.000Z",
+    user_id: 26,
+    name: "hjbm,",
+    user_name: "shop",
+    name_en: "Jaffna",
+    description:"Help them"
   });
 
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchCollection = async () => {
       setLoading(true);
       const { data } = await http.get(`/admin/viewSellPointById/${userId}`);
-      setSellingPoint(data.result.row[0]);
+      setColleciton(data.result.row[0]);
       console.log(data.result.row[0]);
       setLoading(false);
     };
-    fetchUser();
+    fetchCollection();
   }, []);
 
-//   const handleChange = (event) => {
-//     setValues({
-//       ...values,
-//       [event.target.name]: event.target.value
-//     });
-//   };
+  //   const handleChange = (event) => {
+  //     setValues({
+  //       ...values,
+  //       [event.target.name]: event.target.value
+  //     });
+  //   };
+
+  if (loading)
+    return (
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    );
+
+  if (!collection) return <div>Not found</div>;
+  /*
+  collection response sample
+  {
+    colpoint_id: 5
+    end_time: "2021-09-24T00:00:00.000Z"
+    name: "carehome"
+    name_en: "Hulannuge"
+    ngo_id: 285
+    start_time: "2021-09-17T00:00:00.000Z"
+    status: 1
+    user_id: 285
+    user_name: "carehome"
+  }
+*/
 
   return (
-    <form
-      autoComplete="off"
-      noValidate
-      {...props}
-    >
+    <form autoComplete="off" noValidate {...props}>
       <Card>
-        <CardHeader
-          title="Details"
-        />
+        <CardHeader title="Details" />
         <Divider />
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Name"
+                label="Creater"
                 name="name"
                 required
-                value={sellingPoint.name}
+                value={collection.name}
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="Creater Id"
+                name="ngo_id"
+                required
+                value={collection.user_name}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Email Address"
                 name="email"
                 required
-                value={sellingPoint.email}
+                value={collection.email}
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Phone Number"
-                name="phone"
-                requireds
-                value={sellingPoint.phone}
+                name="mobile_number"
+                required
+                value={collection.mobile_number}
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
+            <TextField
+                fullWidth
+                label="City"
+                name="name_en"
+                required
+                value={collection.name_en}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Description"
                 name="description"
                 type="text"
-                value={sellingPoint.description}
+                value={collection.description}
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="Start Time"
+                name="start_time"
+                type="datetime"
+                value={moment(collection.start_time).format("YYYY/MM/DD  HH:mm")}
+                variant="outlined"
+              />
             </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="End Time"
+                name="end_time"
+                type="datetime"
+                value={moment(collection.end_time).format("YYYY/MM/DD  HH:mm")}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}></Grid>
           </Grid>
         </CardContent>
         <Divider />
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            p: 2
+            display: "flex",
+            justifyContent: "flex-end",
+            p: 2,
           }}
-        >
-        </Box>
+        ></Box>
       </Card>
     </form>
   );

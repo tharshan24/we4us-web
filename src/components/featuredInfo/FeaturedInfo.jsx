@@ -68,6 +68,28 @@ export default function FeaturedInfo() {
     fetchCounts();
   }, []);
   return (
+    <div>
+        <span
+          style={{
+            textAlign: "center",
+            color: "#3F51B5",
+            fontSize: 32,
+            fontWeight: 600,
+          }}
+        >
+          <center>Wellcome to the We4Us home </center>
+        </span>
+        <span
+          style={{
+            textAlign: "center",
+            color: "#ffff",
+            fontSize: 32,
+            fontWeight: 600,
+          }}
+        >
+          <center>         ........... </center>
+        </span>
+      
     <div className="featured">
       <div className="featuredItem">
         <Typography component="p" variant="h5">
@@ -124,30 +146,7 @@ export default function FeaturedInfo() {
             <span className="view">View</span>
          </Link>
       </div>
-      {/* <div className="featuredItem">
-        <span className="featuredTitle">NGO <AccountBalance className="featuredIcon negative"/></span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">4</span>
-          </div>
-        </div>
-        <div className="featuredItem">
-        <span className="featuredTitle">Care Home <HomeWork className="featuredIcon negative"/></span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">2</span>
-          </div>
-        </div>
-        <div className="featuredItem">
-        <span className="featuredTitle">Shop  <ShopTwo className="featuredIcon negative"/></span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">1</span>
-          </div>
-        </div>
-        <div className="featuredItem">
-        <span className="featuredTitle">Restaurant <Restaurant className="featuredIcon negative"/></span>
-        <div className="featuredMoneyContainer">
-          <span className="featuredMoney">4</span>
-          </div>
-        </div> */}
+    </div>
     </div>
   );
 }

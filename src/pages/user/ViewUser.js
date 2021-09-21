@@ -59,19 +59,9 @@ export default function ViewUser() {
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-            {/* <img
-              src={
-                user.profile_picture_path
-                  ? user.profile_picture_path
-                  : "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              }
-              alt=""
-              className="userShowImg"
-            /> */}
-            {/* <div className="userShowTopTitle">
-              <span className="userShowUsername">{viewUser.user_name}</span>
-              <span className="userShowUserTitle">{viewUser.user_type_name}</span>
-            </div> */}
+          {viewUser.profile_picture_path && (
+              <img src={viewUser.profile_picture_path.split(" ")[0]} height={50} width={50} />
+            )}
           </div>
           <div className="userShowBottom">
             <span className="userShowTitle">Account Details</span>

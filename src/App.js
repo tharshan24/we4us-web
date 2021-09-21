@@ -8,6 +8,7 @@ import UserList from "./pages/userList/UserList";
 import Notification from "./pages/notification/Notification";
 import View from "./pages/notification/view";
 import User from "./pages/user/User";
+import WidgetLg from "./components/widgetLg/WidgetLg";
 import WidgetSm from "./components/widgetSm/WidgetSm";
 import Transactions from "./pages/transactions/Transactions";
 //import Analytics from './pages/analytics/Analytics';

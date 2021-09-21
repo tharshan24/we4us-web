@@ -6,6 +6,9 @@ import {
   BarChart,
   WorkOutline,
 } from "@material-ui/icons";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
+import RoomIcon from '@mui/icons-material/Room';
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
@@ -41,20 +44,20 @@ export default function Sidebar() {
             </Link>
             <Link to="/request" className="link">
               <li className="sidebarListItem">
-                <AttachMoney className="sidebarIcon" />
+                <PhoneInTalkIcon className="sidebarIcon" />
                 Request
-              </li>
-            </Link>
-            <Link to="/sellingPoint" className="link">
-              <li className="sidebarListItem">
-                <BarChart className="sidebarIcon" />
-                Selling Points
               </li>
             </Link>
             <Link to='/collectionPoint' className="link">
               <li className="sidebarListItem">
-                <BarChart className="sidebarIcon" />
+                <AddShoppingCartIcon className="sidebarIcon" />
                 Collection Points
+              </li>
+            </Link>
+            <Link to="/sellingPoint" className="link">
+              <li className="sidebarListItem">
+                <RoomIcon className="sidebarIcon" />
+                Selling Points
               </li>
             </Link>
           </ul>
@@ -63,12 +66,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <Link to="/users" className="link">
+            {/* <Link to="/users" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
                 Users
               </li>
-            </Link>
+            </Link> */}
             <Link to="/transactions" className="link">
               <li className="sidebarListItem">
                 <AttachMoney className="sidebarIcon" />

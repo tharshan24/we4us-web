@@ -5,19 +5,21 @@ import { Link } from "react-router-dom";
 
 import http from "../../services/httpService";
 import { CircularProgress } from "@material-ui/core";
+import moment from "moment";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 100 },
+  { field: "sellpoint_id", headerName: "ID", width: 100 },
+  { field: "user_id", headerName: "User id", width: 150 },
   {
     field: "name",
-    headerName: "User name",
+    headerName: "User",
     width: 150,
   },
-  // {
-  //   field: 'userType',
-  //   headerName: 'User Type',
-  //   width: 150,
-  // },
+  {
+    field: 'user_name',
+    headerName: 'User name',
+    width: 150,
+  },
   //   {
   //     field: 'availabilityType',
   //     headerName: 'Availability Type',
@@ -34,7 +36,7 @@ const columns = [
     width: 150,
   },
   {
-    field: "city",
+    field: "name_en",
     headerName: "City",
     width: 150,
   },
@@ -45,7 +47,7 @@ const columns = [
     renderCell: (params) => {
       return (
         <>
-          <Link to={"/viewSellingPoint/" + params.row.id}>
+          <Link to={"/viewSellingPoint/" + params.row.sellpoint_id}>
             <button className="userListEdit">View Details</button>
           </Link>
         </>
@@ -56,13 +58,15 @@ const columns = [
 
 const rows = [
   {
-    id: 1,
-    name: "Snow",
-    status: "pending",
-    start_Time: "10.30",
-    end_Time: "10.30",
-    city: "Jaffna",
-    view: "view",
+    sellpoint_id: 1,
+    shop_id: 26,
+    status: 1,
+    start_time: "2021-09-21T06:36:00.000Z",
+    end_time: "2021-09-23T08:36:00.000Z",
+    user_id: 26,
+    name: "hjbm,",
+    user_name: "shop",
+    name_en: "Jaffna"
   },
   // { id: 1, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
   // { id: 2, name: 'Snow', userType: 'NGO',date: '21.09.2021', time: '10.30', city:<Visibility/>,view:'view' },
@@ -78,12 +82,23 @@ export default function SellingPoint() {
     const fetchSelling = async () => {
       setLoading(true);
       const { data } = await http.get("/admin/viewSellPoint");
+      for (let i = 0; i < data.result.row.length; i++) {
+        data.result.row[i]["id"] = data.result.row[i]["sellpoint_id"];
+        data.result.row[i]["start_time"] = moment(
+          data.result.row[i]["start_time"]
+        ).format("YYYY/MM/DD HH:mm");
+
+        data.result.row[i]["end_time"] = moment(
+          data.result.row[i]["end_time"]
+        ).format("YYYY/MM/DD HH:mm");
+      }
       setSellingPoint(data.result.row);
       console.log(data.result.row);
       setLoading(false);
     };
     fetchSelling();
   }, []);
+
 
   if (loading)
     return (
@@ -109,7 +124,7 @@ export default function SellingPoint() {
             fontWeight: 600,
           }}
         >
-          <center>Sellig Point</center>
+          <center>Selling Point</center>
         </span>
       </div>
       <DataGrid

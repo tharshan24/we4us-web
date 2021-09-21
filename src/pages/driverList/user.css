@@ -41,8 +41,9 @@
   }
   
   .userShowTop {
-    display: flex;
-    align-items: center;
+    border-radius: 50%;
+    padding: 5px;
+  width: 150px;
   }
   
   .userShowImg {

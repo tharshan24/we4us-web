@@ -80,7 +80,7 @@ export default function ViewDriver() {
         <div className="userShow">
           <div className="userShowTop">
           {driver.profile_picture_path && (
-              <img src={driver.profile_picture_path.split(" ")[0]} height={10} width={20} />
+              <img src={driver.profile_picture_path.split(" ")[0]} height={50} width={50} />
             )}
             <div className="userShowTopTitle">
               <span className="userShowUsername">{`${driver.first_name} ${driver.last_name}`}</span>

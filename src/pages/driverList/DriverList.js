@@ -29,19 +29,23 @@ export default function DriverList() {
      headerName: "ID",
       width: 100,
      },
-    {
-      field: "user_name",
-      headerName: "Driver",
-      width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
-            {params.row.username}
-          </div>
-        );
-      },
-    },
+     { field: "user_name",
+     headerName: "User Name",
+      width: 160,
+     },
+    // {
+    //   field: "profile_picture_path",
+    //   headerName: "Profile",
+    //   width: 200,
+    //   renderCell: (params) => {
+    //     return (
+    //       <div className="userListUser">
+    //         <img className="userListImg" src={params.row.avatar} alt="" />
+    //         {params.row.username}
+    //       </div>
+    //     );
+    //   },
+    // },
     { field: "email", headerName: "Email", width: 200 },
     {
       field: "status",

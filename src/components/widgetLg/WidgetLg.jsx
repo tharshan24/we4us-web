@@ -1,63 +1,117 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import { DialogTitle } from '@material-ui/core';
+import React, { useEffect, useState } from "react";
+import "./widgeLg.css";
+import { Typography,Button } from "@material-ui/core";
+import {
+  AccountBalance,
+  Group,
+  HomeWork,
+  ShopTwo,
+} from "@material-ui/icons";
+import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
+import RoomIcon from '@mui/icons-material/Room';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 250,
-    flex: 1,
-  },
-});
-
-function createData(name, date, time, amount, status) {
-  return { name, date, time, amount, status };
-}
-
-const rows = [
-  createData('Thishan', "12 sep 2021", "1pm", 240, "Deliverd"),
-  createData('Tharshan', "12 sep 2021", "1pm", 240, "Deliverd"),
-  createData('Athavan', "12 sep 2021", "1pm", 240, "Deliverd"),
-  createData('Mathura', "12 sep 2021", "1pm", 240, "Deliverd"),
-  createData('Mithula', "12 sep 2021", "1pm", 240, "Deliverd"),
-];
+import http from "../../services/httpService";
+import axios from "axios";
 
 export default function WidgetLg() {
-  const classes = useStyles();
+  const [count, setCount] = useState({
+    availability: 0,
+    request: 0,
+    collectionPoint: 0,
+    sellingPoint: 0,
+    driver: 0,
+  });
+  
+console.log(count.availability)
+  useEffect(() => {
+    const fetchCounts = async () => {
+      const results = await axios.all([
+        http.get("/admin/countAvailability"),
+        http.get("/admin/countRequest"),
+        http.get("/admin/countColPoint"),
+        http.get("/admin/countSellPoint"),
+        http.get("/admin/countDrivers"),
+      ]);
 
+      if (results[0].data.result?.row[0]) {
+        setCount({
+          availability: Object.values(results[0].data.result.row[0])[0],
+          request: Object.values(results[1].data.result.row[0])[0],
+          collectionPoint: Object.values(results[2].data.result.row[0])[0],
+          sellingPoint: Object.values(results[3].data.result.row[0])[0],
+          driver: Object.values(results[4].data.result.row[0])[0],
+        });
+      }
+    };
+
+    fetchCounts();
+  }, []);
   return (
-    <TableContainer component={Paper}>
-      <DialogTitle>Latest Transactions</DialogTitle>
-      <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Date</TableCell>
-            <TableCell align="right">Time</TableCell>
-            <TableCell align="right">Amount</TableCell>
-            <TableCell align="right">Status</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.date}</TableCell>
-              <TableCell align="right">{row.time}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
-              <TableCell align="right">{row.status}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div>
+      <span
+          style={{
+            textAlign: "center",
+            color: "#ffff",
+            fontSize: 32,
+            fontWeight: 600,
+          }}
+        >
+          <center>...............</center>
+        </span>
+        <span
+          style={{
+            textAlign: "center",
+            color: "#ffff",
+            fontSize: 32,
+            fontWeight: 600,
+          }}
+        >
+          <center>         ........... </center>
+        </span>
+    <div className="featured">
+      <div className="featuredItem">
+        <Typography component="p" variant="h5">
+          Availability <Group className="featuredIcon negative" />
+        </Typography>
+        <Typography color="text.secondary" sx={{ flex: 1 }}>
+          {count.availability}
+        </Typography>
+      </div>
+      <div className="featuredItem">
+        <Typography component="p" variant="h5">
+          Request <PhoneInTalkIcon className="featuredIcon negative" />
+        </Typography>
+        <Typography color="text.secondary" sx={{ flex: 1 }}>
+          {count.request}
+        </Typography>
+      </div>
+      <div className="featuredItem">
+        <Typography component="p" variant="h5">
+          Collection Point <AddShoppingCartIcon className="featuredIcon negative" />
+        </Typography>
+        <Typography color="text.secondary" sx={{ flex: 1 }}>
+          {count.collectionPoint}
+        </Typography>
+      </div>
+      <div className="featuredItem">
+        <Typography component="p" variant="h5">
+          Selling Point <RoomIcon className="featuredIcon negative" />
+        </Typography>
+        <Typography color="text.secondary" sx={{ flex: 1 }}>
+          {count.sellingPoint}
+        </Typography>
+      </div>
+      <div className="featuredItem">
+        <Typography component="p" variant="h5">
+          Driver <DeliveryDiningIcon className="featuredIcon negative" />
+        </Typography>
+        <Typography color="text.secondary" sx={{ flex: 1 }}>
+          {count.driver}
+        </Typography>
+      </div>
+    </div>
+    </div>
   );
 }
-

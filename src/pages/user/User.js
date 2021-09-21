@@ -59,15 +59,9 @@ export default function User() {
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-            {/* <img
-              src={
-                user.profile_picture_path
-                  ? user.profile_picture_path
-                  : "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              }
-              alt=""
-              className="userShowImg"
-            /> */}
+              {user.profile_picture_path && (
+                  <img src={user.profile_picture_path.split(" ")[0]} height={50} width={50} />
+                )}
             <div className="userShowTopTitle">
               <span className="userShowUsername">{user.user_name}</span>
               <span className="userShowUserTitle">{user.user_type_name}</span>
@@ -79,10 +73,10 @@ export default function User() {
               <PermIdentity className="userShowIcon" />
               <span className="userShowInfoTitle">{`${user.first_name} ${user.last_name}`}</span>
             </div>
-            <div className="userShowInfo">
+            {/* <div className="userShowInfo">
               <CalendarToday className="userShowIcon" />
               <span className="userShowInfoTitle">{user.dob}</span>
-            </div>
+            </div> */}
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
               <PhoneAndroid className="userShowIcon" />
