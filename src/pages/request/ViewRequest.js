@@ -147,7 +147,7 @@ const ViewRequest = (props) => {
                 label="Need before"
                 name="need_before"
                 type="datetime"
-                value={request.need_before}
+                value={moment(request.created_at).format("YYYY/MM/DD  HH:mm")}
                 variant="outlined"
               />
             </Grid>

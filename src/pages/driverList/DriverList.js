@@ -11,13 +11,16 @@ import { CircularProgress } from "@material-ui/core";
 export default function DriverList() {
   const [data] = useState(userRows);
   const [drivers, setDrivers] = useState([]);
+  const [status, setStatus] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchDrivers = async () => {
       setLoading(true);
       const { data } = await http.get("/admin/viewAllDrivers/");
       setDrivers(data.result.row);
+      setStatus(data.result.row.status);
       console.log(data.result.row);
       setLoading(false);
     };
@@ -47,17 +50,12 @@ export default function DriverList() {
     //   },
     // },
     { field: "email", headerName: "Email", width: 200 },
+    
+
     {
       field: "status",
       headerName: "Status",
       width: 120,
-      renderCell: (params)=>{
-        return(
-          <>
-            {params.row.status}
-          </>
-        );
-      }
     },
     // {
     //   field: "type",

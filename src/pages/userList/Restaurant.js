@@ -29,9 +29,9 @@ export default function Restaurant() {
    
     { field: "email", headerName: "Email", width: 200 },
     {
-      field: "status",
-      headerName: "Status",
-      width: 120,
+      field: "mobile_number",
+      headerName: "Mobile_number",
+      width: 160,
     },
     // {
     //   field: "user_type_name",

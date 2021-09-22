@@ -15,8 +15,8 @@ const columns = [
     width: 150,
   },
   {
-    field: "status",
-    headerName: "Status",
+    field: "user_name",
+    headerName: "User Name",
     width: 150,
   },
   {

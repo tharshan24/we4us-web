@@ -65,6 +65,7 @@ export default function User() {
             <div className="userShowTopTitle">
               <span className="userShowUsername">{user.user_name}</span>
               <span className="userShowUserTitle">{user.user_type_name}</span>
+              <span className="userShowUserTitle">Active</span>
             </div>
           </div>
           <div className="userShowBottom">

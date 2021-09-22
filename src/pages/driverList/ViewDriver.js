@@ -117,12 +117,21 @@ export default function ViewDriver() {
           <div className="userShowBottom"></div>
           <div className="img1">
             {driver.license_proof_path && (
-              <img src={driver.license_proof_path.split(" ")[0]} height={100} width={200} />
+              <img src={driver.license_proof_path.split(" ")[0]} height={250} width={300}  />
             )}
-          </div>
-          <div className="img2">
+           <span
+          style={{
+            textAlign: "center",
+            color: "#ffff",
+            fontSize: 32,
+            fontWeight: 600,
+          }}
+        > ...
+        </span>
+          {/* </div>
+          <div className="img2"> */}
             {driver.license_proof_path && (
-              <img src={driver.vehicle_book_proof.split(" ")[0]} height={100} width={200} />
+              <img src={driver.vehicle_book_proof.split(" ")[0]} height={250} width={300} />
             )}
           </div>
           <div className="userUpdateRight">
@@ -139,7 +148,9 @@ export default function ViewDriver() {
               onClick={() => handleDriverStatus(0)}
             >
               Reject
+
             </button> */}
+            {loading ? driver.status===0(
             <button className="userUpdateButton1"
               onClick={e =>
                   window.confirm("Are you sure you wish to accept") &&
@@ -147,6 +158,16 @@ export default function ViewDriver() {
               } >
               Confirm
             </button>
+            ): <button className="userUpdateButton1"
+            onClick={e =>
+                window.confirm("Are you sure you wish to cancle") &&
+                handleDriverStatus(0)
+            } >
+            Cancle
+          </button>
+            }
+
+            
           </div>
         </div>
       </div>

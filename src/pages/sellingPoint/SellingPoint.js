@@ -25,16 +25,16 @@ const columns = [
   //     headerName: 'Availability Type',
   //     width: 150,
   //   },
-  {
-    field: "start_Time",
-    headerName: "Start Date",
-    width: 150,
-  },
-  {
-    field: "end_Time",
-    headerName: "End Date",
-    width: 150,
-  },
+  // {
+  //   field: "start_Time",
+  //   headerName: "Start Date",
+  //   width: 150,
+  // },
+  // {
+  //   field: "end_Time",
+  //   headerName: "End Date",
+  //   width: 150,
+  // },
   {
     field: "name_en",
     headerName: "City",

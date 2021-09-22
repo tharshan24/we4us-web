@@ -10,19 +10,19 @@ const columns = [
   { field: "id", headerName: "ID", width: 100 },
   {
     field: "user_name",
-    headerName: "User name",
-    width: 150,
+    headerName: "Creater name",
+    width: 180,
   },
   {
     field: "user_type_name",
-    headerName: "User Type",
-    width: 150,
+    headerName: "Creater Type",
+    width: 180,
   },
-  {
-    field: "availability_type",
-    headerName: "Availability Type",
-    width: 150,
-  },
+  // {
+  //   field: "avail_type_name",
+  //   headerName: "Availability Type",
+  //   width: 150,
+  // },
   {
     field: "date",
     headerName: "Date",
@@ -60,7 +60,7 @@ const rows = [
     id: 1,
     name: "Snow",
     userType: "NGO",
-    availabilityType: "ttttt",
+    avail_type_name: "ttttt",
     date: "21.09.2021",
     time: 10.3,
     city: <Visibility />,

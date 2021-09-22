@@ -22,7 +22,7 @@ const ViewAvailability = (props) => {
     email: "demo@devias.io",
     mobile_numbe: "0774458400",
     total: "15",
-    availability_type: "wedding",
+    avail_type_name: "Cooked Food",
     description: "qqqqqqqqqqqqqqqqqqqqqqqqqqqq",
     food_type: "veg",
     cooked_time: "12.30",
@@ -123,9 +123,9 @@ const ViewAvailability = (props) => {
               <TextField
                 fullWidth
                 label="Availability type"
-                name="availability_type)"
+                name="avail_type_name"
                 type="text"
-                value={availability.availability_type}
+                value={values.avail_type_name}
                 variant="outlined"
               />
             </Grid>
@@ -145,7 +145,7 @@ const ViewAvailability = (props) => {
                 label="Food Type"
                 name="food_type"
                 type="text"
-                value={availability.food_type}
+                value={values.food_type}
                 variant="outlined"
               />
             </Grid>
@@ -169,7 +169,7 @@ const ViewAvailability = (props) => {
                 variant="outlined"
               />
             </Grid>
-            <Grid item md={6} xs={12}>
+            {/* <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Status"
@@ -178,7 +178,7 @@ const ViewAvailability = (props) => {
                 value={availability.avail_status}
                 variant="outlined"
               />
-            </Grid>
+            </Grid> */}
             <Grid item md={6} xs={12}></Grid>
           </Grid>
         </CardContent>

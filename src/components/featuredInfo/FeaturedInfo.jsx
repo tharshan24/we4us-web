@@ -77,7 +77,7 @@ export default function FeaturedInfo() {
             fontWeight: 600,
           }}
         >
-          <center>Wellcome to the We4Us home </center>
+          <center>Welcome to the We4Us home </center>
         </span>
         <span
           style={{
