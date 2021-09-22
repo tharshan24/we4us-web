@@ -14,11 +14,11 @@ const columns = [
     headerName: "User name",
     width: 150,
   },
-  {
-    field: "user_name",
-    headerName: "User Name",
-    width: 150,
-  },
+  // {
+  //   field: "user_name",
+  //   headerName: "User Name",
+  //   width: 150,
+  // },
   {
     field: "start_time",
     headerName: "Start Date",

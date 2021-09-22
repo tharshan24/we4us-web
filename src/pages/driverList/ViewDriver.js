@@ -150,20 +150,21 @@ export default function ViewDriver() {
               Reject
 
             </button> */}
-            {loading ? driver.status===0(
+            
+            {loading ? driver.status===1(
             <button className="userUpdateButton1"
               onClick={e =>
                   window.confirm("Are you sure you wish to accept") &&
-                  handleDriverStatus(1)
+                  handleDriverStatus(0)
               } >
               Confirm
             </button>
             ): <button className="userUpdateButton1"
             onClick={e =>
                 window.confirm("Are you sure you wish to cancle") &&
-                handleDriverStatus(0)
+                handleDriverStatus(1)
             } >
-            Cancle
+            Cancel
           </button>
             }
 

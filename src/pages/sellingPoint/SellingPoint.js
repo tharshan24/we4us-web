@@ -17,7 +17,7 @@ const columns = [
   },
   {
     field: 'user_name',
-    headerName: 'User name',
+    headerName: 'User Type',
     width: 150,
   },
   //   {
